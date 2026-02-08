@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIP-C01 模擬試験 | AWS Certified Generative AI Developer - Professional</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- スキップリンク -->
+  <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+  <main id="main-content">
+  <!-- ホーム画面 -->
+  <section id="home-screen" class="screen active" aria-label="ホーム">
+    <div class="container">
+      <header class="home-header">
+        <div class="logo">AIP-C01</div>
+        <h1 tabindex="-1">AWS Certified Generative AI Developer - Professional</h1>
+        <p class="subtitle">模擬試験 &mdash; 200問</p>
+      </header>
+
+      <div class="mode-cards">
+        <div class="mode-card" tabindex="0" role="button" onclick="App.startExam()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.startExam();}">
+          <div class="mode-icon">&#128221;</div>
+          <h2>模擬試験</h2>
+          <p>65問 / 205分</p>
+          <p class="mode-desc">本番と同じ条件でランダム出題。合格スコア750を目指そう。</p>
+        </div>
+        <div class="mode-card" tabindex="0" role="button" onclick="App.startStudy()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.startStudy();}">
+          <div class="mode-icon">&#128218;</div>
+          <h2>学習モード</h2>
+          <p>全200問</p>
+          <p class="mode-desc">1問ずつ解答し、即座に解説を確認。</p>
+        </div>
+        <div class="mode-card" tabindex="0" role="button" onclick="App.showDomainSelect()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.showDomainSelect();}">
+          <div class="mode-icon">&#127919;</div>
+          <h2>分野別学習</h2>
+          <p>分野を選択</p>
+          <p class="mode-desc">苦手な分野を集中して学習。</p>
+        </div>
+        <div class="mode-card" tabindex="0" role="button" onclick="App.startReview()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();App.startReview();}">
+          <div class="mode-icon">&#128260;</div>
+          <h2>復習モード</h2>
+          <p>間違えた問題</p>
+          <p class="mode-desc">過去に間違えた問題だけを出題。</p>
+        </div>
+      </div>
+
+      <!-- 分野選択パネル -->
+      <div id="domain-select" class="domain-select hidden">
+        <h3>分野を選択してください</h3>
+        <div class="domain-buttons">
+          <button onclick="App.startDomainStudy(1)" class="domain-btn">
+            <span class="domain-num">1</span>
+            <span>FM統合・データ管理・コンプライアンス<br><small>62問 (31%)</small></span>
+          </button>
+          <button onclick="App.startDomainStudy(2)" class="domain-btn">
+            <span class="domain-num">2</span>
+            <span>実装と統合<br><small>52問 (26%)</small></span>
+          </button>
+          <button onclick="App.startDomainStudy(3)" class="domain-btn">
+            <span class="domain-num">3</span>
+            <span>AI安全性・セキュリティ・ガバナンス<br><small>40問 (20%)</small></span>
+          </button>
+          <button onclick="App.startDomainStudy(4)" class="domain-btn">
+            <span class="domain-num">4</span>
+            <span>運用効率と最適化<br><small>24問 (12%)</small></span>
+          </button>
+          <button onclick="App.startDomainStudy(5)" class="domain-btn">
+            <span class="domain-num">5</span>
+            <span>テスト・検証・トラブルシューティング<br><small>22問 (11%)</small></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 直近の成績 -->
+      <div id="recent-score" class="recent-score hidden">
+        <h3>直近の模擬試験結果</h3>
+        <div id="recent-score-content"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 問題画面 -->
+  <section id="quiz-screen" class="screen" aria-label="問題">
+    <div class="quiz-layout">
+      <!-- ヘッダー -->
+      <div class="quiz-header">
+        <div class="quiz-header-left">
+          <button class="btn-back" onclick="App.confirmExit()" aria-label="試験を終了してホームに戻る">&#x2190; 終了</button>
+          <span id="quiz-mode-label" class="quiz-mode-label">模擬試験</span>
+        </div>
+        <div class="quiz-header-center">
+          <span id="quiz-progress">問題 1 / 65</span>
+        </div>
+        <div class="quiz-header-right">
+          <span id="quiz-timer" class="quiz-timer hidden" role="timer" aria-live="polite">205:00</span>
+        </div>
+      </div>
+
+      <!-- 問題コンテンツ -->
+      <div class="quiz-body">
+        <div class="question-area" id="question-area">
+          <!-- question-renderer.js が描画 -->
+        </div>
+
+        <!-- 解説エリア（学習モード用） -->
+        <div id="explanation-area" class="explanation-area hidden">
+          <div class="explanation-header">
+            <span id="explanation-result" class="explanation-result"></span>
+          </div>
+          <div id="explanation-text" class="explanation-text"></div>
+        </div>
+      </div>
+
+      <!-- フッター -->
+      <div class="quiz-footer">
+        <button id="btn-prev" class="btn-nav" onclick="QuizEngine.prev()" aria-label="前の問題へ">&#x25C0; 前へ</button>
+        <button id="btn-flag" class="btn-flag" onclick="QuizEngine.toggleFlag()" aria-label="この問題にフラグを付ける">&#x1F6A9; フラグ</button>
+        <button id="btn-check" class="btn-check hidden" onclick="QuizEngine.checkAnswer()" aria-label="解答を確認する">解答を確認</button>
+        <button id="btn-next" class="btn-nav" onclick="QuizEngine.next()" aria-label="次の問題へ">次へ &#x25B6;</button>
+        <button id="btn-finish" class="btn-finish hidden" onclick="QuizEngine.finishExam()" aria-label="試験を終了する">試験を終了</button>
+      </div>
+
+      <!-- ナビゲーションパネル -->
+      <div id="nav-panel" class="nav-panel">
+        <div class="nav-panel-header">
+          <span>問題一覧</span>
+          <button class="nav-toggle" onclick="QuizEngine.toggleNav()" aria-label="問題一覧を開閉" aria-expanded="true">&#x25BC;</button>
+        </div>
+        <div id="nav-grid" class="nav-grid">
+          <!-- 動的生成 -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 結果画面 -->
+  <section id="result-screen" class="screen" aria-label="結果">
+    <div class="container">
+      <div class="result-header">
+        <h1 id="result-title" tabindex="-1">模擬試験結果</h1>
+      </div>
+
+      <div class="result-score-card">
+        <div id="result-badge" class="result-badge"></div>
+        <div class="result-score-display">
+          <div class="score-label">換算スコア</div>
+          <div id="result-score" class="score-value">---</div>
+          <div class="score-range">100 〜 1,000（合格: 750）</div>
+        </div>
+        <div class="result-stats">
+          <div class="stat">
+            <span class="stat-num" id="result-correct">0</span>
+            <span class="stat-label">正解</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="result-total">0</span>
+            <span class="stat-label">出題数</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" id="result-rate">0%</span>
+            <span class="stat-label">正答率</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分野別正答率 -->
+      <div class="result-domains">
+        <h2>分野別正答率</h2>
+        <div id="domain-bars" class="domain-bars">
+          <!-- 動的生成 -->
+        </div>
+      </div>
+
+      <!-- 間違えた問題一覧 -->
+      <div class="result-wrong">
+        <h2 id="wrong-title">間違えた問題</h2>
+        <div id="wrong-list" class="wrong-list">
+          <!-- 動的生成 -->
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn-primary" onclick="App.goHome()">ホームに戻る</button>
+        <button class="btn-secondary" onclick="App.retryWrong()">間違えた問題を復習</button>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- 確認ダイアログ -->
+  <div id="confirm-dialog" class="dialog-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-message">
+    <div class="dialog">
+      <h3 id="dialog-title">確認</h3>
+      <div id="dialog-message">試験を終了しますか？</div>
+      <div class="dialog-actions">
+        <button class="btn-secondary" onclick="App.closeDialog()">キャンセル</button>
+        <button class="btn-primary" id="dialog-confirm">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ローディング -->
+  <div id="loading" class="loading-overlay" role="status" aria-live="polite">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <p>問題データを読み込んでいます...</p>
+  </div>
+
+  <script src="data/question-manifest.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/question-renderer.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/results.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => App.init());
+  </script>
+</body>
+</html>

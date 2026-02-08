@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# AI tools
+.claude/
+.claude_*
+.cursorrules
+.cursor/
+.aider*
+.codeium/
+.continue/
+.copilot/
+.github/copilot/
+.windsurf/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# PDF (large binary)
+*.pdf
+
+# Environment / secrets
+.env
+.env.*
+
+# Misc
+*.log
+Thumbs.db
+
+# etc
+CLAUDE.md
+analysis/
