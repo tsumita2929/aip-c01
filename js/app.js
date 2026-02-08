@@ -207,7 +207,10 @@ const App = (() => {
   // === ダイアログ ===
 
   function confirmExit() {
-    showDialog('試験を終了しますか？', '未回答の問題は不正解として扱われます。', () => {
+    const message = currentMode === 'exam'
+      ? '未回答の問題は不正解として扱われます。'
+      : '学習を終了してホームに戻ります。';
+    showDialog('終了しますか？', message, () => {
       if (currentMode === 'exam') {
         QuizEngine.finishExam();
       } else {

@@ -53,8 +53,8 @@ window.DOMAIN3_QUESTIONS.push({
       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
     },
     {
-      "title": "Amazon SageMaker Model Cards",
-      "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html"
+      "title": "Amazon CloudWatch Monitoring",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html"
     }
   ]
 });

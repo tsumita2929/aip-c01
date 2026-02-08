@@ -126,6 +126,10 @@ const QuestionRenderer = (() => {
   // === 並べ替え ===
   function renderOrdering(q, userAnswer) {
     const order = userAnswer || q.options.map(o => o.id);
+    // 初回表示時にデフォルト順を解答として保存
+    if (!userAnswer) {
+      QuizEngine.setAnswer(order);
+    }
     const optionMap = {};
     q.options.forEach(o => optionMap[o.id] = o.text);
 

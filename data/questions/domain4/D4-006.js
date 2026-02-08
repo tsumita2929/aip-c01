@@ -28,7 +28,7 @@ window.DOMAIN4_QUESTIONS.push({
   "correctAnswers": [
     "B"
   ],
-  "explanation": "正解はBです。Amazon Bedrock Knowledge Bases と Claude 3 Haiku による RAG 構成は、この要件に最適です。Haiku は定型的な質問応答に十分な品質を提供しながら推論コストが最も低く、Knowledge Bases がドキュメントのインデックス化と検索を自動管理するため運用負荷も最小です。S3 + OpenSearch Serverless のマネージド構成により、インフラ管理も不要です。Aは Opus の高コストに加え、全文をプロンプトに含めると1リクエストあたりのトークン数が膨大になり、月間20,000件でコストが大幅に超過します。Cはファインチューニングと SageMaker エンドポイントの運用コスト・管理負荷が高く、定型 FAQ 対応には過剰です。DはLex のルールベースアプローチでは質問の表現の多様性に対応が困難であり、インテント・スロットの手動定義と継続的な更新が運用負荷となります。",
+  "explanation": "正解はBです。Amazon Bedrock Knowledge Bases と Claude 3 Haiku による RAG 構成は、この要件に最適です。Haiku は定型的な質問応答に十分な品質を提供しながら推論コストが最も低く、Knowledge Bases がドキュメントのインデックス化と検索を自動管理するため運用負荷も最小です。S3 + OpenSearch Serverless のマネージド構成により、インフラ管理も不要です。Aは Opus の高コストに加え、全文をプロンプトに含めると1リクエストあたりのトークン数が膨大になり、月間20,000件でコストが大幅に超過します。Cはファインチューニングと SageMaker エンドポイントの運用コスト・管理負荷が高く、定型 FAQ 対応には過剰です。DはLex のルールベースアプローチでは質問の表現の多様性に対応が困難であり、インテント・スロットの手動定義と継続的な更新が運用負荷となります。（スキル: 4.1.2）",
   "optionExplanations": {
     "A": {
       "correct": false,

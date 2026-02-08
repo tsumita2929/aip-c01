@@ -5,6 +5,7 @@ const QuizEngine = (() => {
   let currentIndex = 0;
   let answers = {};   // { questionId: answer }
   let flags = {};     // { questionId: true }
+  let checked = {};   // { questionId: true|false } (true=correct, false=incorrect)
   let timerInterval = null;
   let timeRemaining = 0;
 
@@ -15,6 +16,7 @@ const QuizEngine = (() => {
     currentIndex = 0;
     answers = {};
     flags = {};
+    checked = {};
     _finished = false;
     timeRemaining = cfg.timeLimit || 0;
 
@@ -152,7 +154,9 @@ const QuizEngine = (() => {
     const userAnswer = answers[q.id];
     const isCorrect = checkCorrectness(q, userAnswer);
 
+    checked[q.id] = isCorrect;
     QuestionRenderer.showExplanation(q, userAnswer, isCorrect);
+    updateNavGrid();
 
     // 間違えた問題を記録
     if (!isCorrect) {
@@ -271,7 +275,11 @@ const QuizEngine = (() => {
       const q = questions[i];
       cell.className = 'nav-cell';
       if (i === currentIndex) cell.classList.add('current');
-      if (answers[q.id]) cell.classList.add('answered');
+      if (q.id in checked) {
+        cell.classList.add(checked[q.id] ? 'correct' : 'incorrect');
+      } else if (answers[q.id]) {
+        cell.classList.add('answered');
+      }
       if (flags[q.id]) cell.classList.add('flagged');
     });
   }

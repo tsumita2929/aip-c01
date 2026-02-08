@@ -28,7 +28,7 @@ window.DOMAIN4_QUESTIONS.push({
   "correctAnswers": [
     "A"
   ],
-  "explanation": "正解はAです。CloudWatch は Bedrock のネイティブメトリクス（InvocationLatency、InvocationErrors、ThrottledCount）を追加設定なしで自動収集できます。CloudWatch Alarms で閾値ベースの異常検出を設定し、SNS 経由でオンコールチームに自動通知する構成は、最小の運用負荷でリアルタイムモニタリングと自動通知を実現できます。Bの X-Ray + OpenSearch + Kibana は詳細なトレース分析には有効ですが、OpenSearch クラスターの運用管理が必要であり、「最初に実装すべき基本的なオブザーバビリティ」としては過剰です。Cの Kinesis + Redshift + QuickSight はデータ分析基盤としては優れていますが、リアルタイムのアラート機能がなく、毎日の定例会議でのレビューでは問題の早期検出要件を満たしません。Dの EC2 上の Prometheus + Grafana は強力なモニタリングスタックですが、EC2 インスタンスの運用管理が必要であり、CloudWatch のネイティブ統合と比較して運用負荷が大幅に高くなります。",
+  "explanation": "正解はAです。CloudWatch は Bedrock のネイティブメトリクス（InvocationLatency、InvocationErrors、ThrottledCount）を追加設定なしで自動収集できます。CloudWatch Alarms で閾値ベースの異常検出を設定し、SNS 経由でオンコールチームに自動通知する構成は、最小の運用負荷でリアルタイムモニタリングと自動通知を実現できます。Bの X-Ray + OpenSearch + Kibana は詳細なトレース分析には有効ですが、OpenSearch クラスターの運用管理が必要であり、「最初に実装すべき基本的なオブザーバビリティ」としては過剰です。Cの Kinesis + Redshift + QuickSight はデータ分析基盤としては優れていますが、リアルタイムのアラート機能がなく、毎日の定例会議でのレビューでは問題の早期検出要件を満たしません。Dの EC2 上の Prometheus + Grafana は強力なモニタリングスタックですが、EC2 インスタンスの運用管理が必要であり、CloudWatch のネイティブ統合と比較して運用負荷が大幅に高くなります。（スキル: 4.3.1）",
   "optionExplanations": {
     "A": {
       "correct": true,

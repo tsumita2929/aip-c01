@@ -49,8 +49,8 @@ window.DOMAIN3_QUESTIONS.push({
   },
   "references": [
     {
-      "title": "Amazon Bedrock Guardrails Denied Topics",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-denied-topics.html"
+      "title": "Amazon Bedrock Guardrails Prompt Attack Filters",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack-filters.html"
     },
     {
       "title": "Amazon Bedrock Security Best Practices",

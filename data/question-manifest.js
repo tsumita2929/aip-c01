@@ -61,7 +61,15 @@ window.QUESTION_FILE_MANIFEST = {
     "data/questions/domain1/D1-059.js",
     "data/questions/domain1/D1-060.js",
     "data/questions/domain1/D1-061.js",
-    "data/questions/domain1/D1-062.js"
+    "data/questions/domain1/D1-062.js",
+    "data/questions/domain1/D1-063.js",
+    "data/questions/domain1/D1-064.js",
+    "data/questions/domain1/D1-065.js",
+    "data/questions/domain1/D1-066.js",
+    "data/questions/domain1/D1-067.js",
+    "data/questions/domain1/D1-068.js",
+    "data/questions/domain1/D1-069.js",
+    "data/questions/domain1/D1-070.js"
   ],
   "2": [
     "data/questions/domain2/D2-001.js",
@@ -115,7 +123,15 @@ window.QUESTION_FILE_MANIFEST = {
     "data/questions/domain2/D2-049.js",
     "data/questions/domain2/D2-050.js",
     "data/questions/domain2/D2-051.js",
-    "data/questions/domain2/D2-052.js"
+    "data/questions/domain2/D2-052.js",
+    "data/questions/domain2/D2-053.js",
+    "data/questions/domain2/D2-054.js",
+    "data/questions/domain2/D2-055.js",
+    "data/questions/domain2/D2-056.js",
+    "data/questions/domain2/D2-057.js",
+    "data/questions/domain2/D2-058.js",
+    "data/questions/domain2/D2-059.js",
+    "data/questions/domain2/D2-060.js"
   ],
   "3": [
     "data/questions/domain3/D3-001.js",
@@ -157,7 +173,11 @@ window.QUESTION_FILE_MANIFEST = {
     "data/questions/domain3/D3-037.js",
     "data/questions/domain3/D3-038.js",
     "data/questions/domain3/D3-039.js",
-    "data/questions/domain3/D3-040.js"
+    "data/questions/domain3/D3-040.js",
+    "data/questions/domain3/D3-041.js",
+    "data/questions/domain3/D3-042.js",
+    "data/questions/domain3/D3-043.js",
+    "data/questions/domain3/D3-044.js"
   ],
   "4": [
     "data/questions/domain4/D4-001.js",
@@ -183,7 +203,11 @@ window.QUESTION_FILE_MANIFEST = {
     "data/questions/domain4/D4-021.js",
     "data/questions/domain4/D4-022.js",
     "data/questions/domain4/D4-023.js",
-    "data/questions/domain4/D4-024.js"
+    "data/questions/domain4/D4-024.js",
+    "data/questions/domain4/D4-025.js",
+    "data/questions/domain4/D4-026.js",
+    "data/questions/domain4/D4-027.js",
+    "data/questions/domain4/D4-028.js"
   ],
   "5": [
     "data/questions/domain5/D5-001.js",
@@ -207,6 +231,10 @@ window.QUESTION_FILE_MANIFEST = {
     "data/questions/domain5/D5-019.js",
     "data/questions/domain5/D5-020.js",
     "data/questions/domain5/D5-021.js",
-    "data/questions/domain5/D5-022.js"
+    "data/questions/domain5/D5-022.js",
+    "data/questions/domain5/D5-023.js",
+    "data/questions/domain5/D5-024.js",
+    "data/questions/domain5/D5-025.js",
+    "data/questions/domain5/D5-026.js"
   ]
 };

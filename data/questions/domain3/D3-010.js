@@ -32,7 +32,7 @@ window.DOMAIN3_QUESTIONS.push({
   "optionExplanations": {
     "A": {
       "correct": false,
-      "text": "不正解です。ガードレールと CloudWatch 監視は提供するものの、後処理でのビジネスロジック検証（支払い金額の妥当性チェック等）が欠落しており、入力から出力まで一貫した安全性という要件を満たしません。"
+      "text": "不正解です。ガードレールによる入出力制御と CloudWatch による介入率監視は有用であるものの、後処理でのビジネスロジック検証（支払い金額の妥当性チェック等）が欠落しており、入力から出力まで一貫した安全性という要件を満たしません。"
     },
     "B": {
       "correct": true,
@@ -53,8 +53,8 @@ window.DOMAIN3_QUESTIONS.push({
       "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html"
     },
     {
-      "title": "Amazon Comprehend PII Detection",
-      "url": "https://docs.aws.amazon.com/comprehend/latest/dg/how-pii.html"
+      "title": "Amazon Bedrock Guardrails Sensitive Information Filters",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-sensitive-filters.html"
     },
     {
       "title": "AWS Well-Architected Framework - Security Pillar",

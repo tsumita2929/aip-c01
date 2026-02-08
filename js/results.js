@@ -32,6 +32,11 @@ const Results = (() => {
     if (mode === 'exam') {
       Storage.saveExamResult(results);
       Storage.addWrongQuestions(wrongIds);
+      // 正解した問題は復習リストから削除
+      const correctIds = questions.filter(q => !wrongIds.includes(q.id)).map(q => q.id);
+      if (correctIds.length > 0) {
+        Storage.removeWrongQuestions(correctIds);
+      }
     }
   }
 

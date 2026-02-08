@@ -32,7 +32,7 @@ window.DOMAIN3_QUESTIONS.push({
   "optionExplanations": {
     "A": {
       "correct": false,
-      "text": "不正解です。Lambda を VPC に配置しても VPC エンドポイントなしでは Bedrock への通信はインターネット経由（NAT Gateway 経由）となるものの、インターネット非経由という要件を満たしません。"
+      "text": "不正解です。Lambda を VPC に配置して IAM ポリシーでアクセスを制限できるものの、VPC エンドポイントなしでは Bedrock への通信はインターネット経由（NAT Gateway 経由）となるため、インターネット非経由という要件を満たしません。"
     },
     "B": {
       "correct": false,
@@ -40,7 +40,7 @@ window.DOMAIN3_QUESTIONS.push({
     },
     "C": {
       "correct": false,
-      "text": "不正解です。API Gateway プライベート API から Bedrock パブリックエンドポイントへの通信はインターネットを経由するものの、エンドツーエンドのプライベート通信にならず、インターネット非経由という要件を満たしません。"
+      "text": "不正解です。API Gateway プライベート API は VPC 内からのアクセスに限定できるものの、API Gateway から Bedrock パブリックエンドポイントへの通信はインターネットを経由するため、エンドツーエンドのプライベート通信にならずインターネット非経由という要件を満たしません。"
     },
     "D": {
       "correct": true,
